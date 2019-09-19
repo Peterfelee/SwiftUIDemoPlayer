@@ -27,7 +27,7 @@ struct ListView:View {
     var body: some View{
         NavigationView{
             List(0..<6){ item in
-                NavigationLink.init(destination: PlayerViewContainer().padding()) {
+                NavigationLink.init(destination: PlayerViewContainer().edgesIgnoringSafeArea(.top)) {
                     ImageView()
                 }
             }.navigationBarTitle(Text("First Blood"))
@@ -41,10 +41,11 @@ import AVKit
 struct PlayerViewContainer:View {
     
     var body: some View{
-        PlayerView().padding().onDisappear {
+        PlayerView().onDisappear {
             PlayerView.Coordinator.share.stopPlay()
         }.onAppear {
             PlayerView.Coordinator.share.updateLayer()
+            
         }
     }
 }
@@ -58,6 +59,7 @@ struct PlayerView:UIViewRepresentable {
     typealias UIViewType = UIView
     func makeUIView(context: UIViewRepresentableContext<PlayerView>) -> UIView {
         let temp = UIView(frame: .zero)
+        temp.backgroundColor = UIColor.black
         context.coordinator.setupView(view: temp)
         return temp
     }
@@ -76,28 +78,34 @@ struct PlayerView:UIViewRepresentable {
         static let share = Coordinator()
         override init() {
             super.init()
+        }
+
+        func  setupView(view:UIView) -> Void {
             playerItem = AVPlayerItem(url: URL(string: "https://meiju4.whetyy.com/20190725/ix0Z695V/index.m3u8")!)
             avplayer = AVPlayer(playerItem: playerItem!)
             playerLayer = AVPlayerLayer(player: avplayer!)
-        }
-        
-        func  setupView(view:UIView) -> Void {
             view.layer.addSublayer((playerLayer)!)
             playerLayer?.frame = UIScreen.main.bounds
             avplayer?.play()
             self.view = view
         }
-        
+
         func stopPlay() -> Void {
             if avplayer != nil {
                 avplayer?.pause()
+                playerItem?.cancelPendingSeeks()
                 playerLayer?.removeFromSuperlayer()
+                avplayer = nil
+                playerItem = nil
+                playerLayer = nil
+                self.view?.removeFromSuperview()
             }
         }
-        
+
         func updateLayer() {
-//            playerLayer?.frame = self.view!.bounds
-            playerLayer?.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0, 0, 0)
+            let frame = UIScreen.main.bounds
+            view?.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2))
+            playerLayer?.frame = CGRect(x: 0, y: 0, width: max(frame.width, frame.height), height: min(frame.width, frame.height))
         }
     }
 }
