@@ -40,22 +40,26 @@ import AVKit
 
 struct PlayerViewContainer:View {
     
+    var isSelect:Bool = false
     var body: some View{
-        PlayerView().onDisappear {
-            PlayerView.Coordinator.share.stopPlay()
-        }.onAppear {
-            PlayerView.Coordinator.share.updateLayer()
-            
+        VStack{
+            PlayerView().onDisappear {
+                PlayerView.Coordinator.share.stopPlay()
+            }.onAppear {
+                PlayerView.Coordinator.share.updateLayer(full: false)
+                
+            }
+            Button.init("full") {
+                //全屏
+                PlayerView.Coordinator.share.updateLayer(full: true)
+                }.frame(width: 300, height: 44, alignment: .center)
         }
+        
+        
     }
 }
 
 struct PlayerView:UIViewRepresentable {
-    func makeCoordinator() -> PlayerView.Coordinator {
-        Coordinator.share
-    }
-    
-    
     typealias UIViewType = UIView
     func makeUIView(context: UIViewRepresentableContext<PlayerView>) -> UIView {
         let temp = UIView(frame: .zero)
@@ -63,13 +67,17 @@ struct PlayerView:UIViewRepresentable {
         context.coordinator.setupView(view: temp)
         return temp
     }
-
     
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<PlayerView>) {
-        context.coordinator.updateLayer()
+        context.coordinator.updateLayer(full: false)
     }
     
-   
+    func makeCoordinator() -> PlayerView.Coordinator {
+        Coordinator.share
+    }
+    
+    
+    
     class Coordinator: NSObject {
         var avplayer:AVPlayer?
         var playerLayer:AVPlayerLayer?
@@ -79,7 +87,7 @@ struct PlayerView:UIViewRepresentable {
         override init() {
             super.init()
         }
-
+        
         func  setupView(view:UIView) -> Void {
             playerItem = AVPlayerItem(url: URL(string: "https://meiju4.whetyy.com/20190725/ix0Z695V/index.m3u8")!)
             avplayer = AVPlayer(playerItem: playerItem!)
@@ -89,7 +97,7 @@ struct PlayerView:UIViewRepresentable {
             avplayer?.play()
             self.view = view
         }
-
+        
         func stopPlay() -> Void {
             if avplayer != nil {
                 avplayer?.pause()
@@ -101,11 +109,30 @@ struct PlayerView:UIViewRepresentable {
                 self.view?.removeFromSuperview()
             }
         }
-
-        func updateLayer() {
+        
+        func updateLayer(full:Bool) {
             let frame = UIScreen.main.bounds
-            view?.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2))
-            playerLayer?.frame = CGRect(x: 0, y: 0, width: max(frame.width, frame.height), height: min(frame.width, frame.height))
+            if full {
+                if view?.transform == CGAffineTransform.identity
+                {
+                view?.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2))
+                playerLayer?.frame = CGRect(x: 0, y: 0, width: max(frame.width, frame.height), height: min(frame.width, frame.height))
+                }
+                else
+                {
+                    view?.transform = CGAffineTransform.identity
+                    playerLayer?.frame = CGRect(x: 0, y: 0, width: frame.width, height: 350)
+
+                }
+                
+            }
+            else
+            {
+                view?.transform = CGAffineTransform.identity
+                playerLayer?.frame = CGRect(x: 0, y: 0, width: frame.width, height: 350)
+            }
+
         }
     }
 }
+
