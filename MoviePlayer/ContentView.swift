@@ -40,7 +40,7 @@ import AVKit
 
 struct PlayerViewContainer:View {
     
-    var isSelect:Bool = false
+    @State private var isSelect:Bool = false
     var body: some View{
         VStack{
             PlayerView().onDisappear {
@@ -51,8 +51,13 @@ struct PlayerViewContainer:View {
             }
             Button.init("full") {
                 //全屏
-                PlayerView.Coordinator.share.updateLayer(full: true)
+                self.isSelect.toggle()
+                PlayerView.Coordinator.share.updateLayer(full: self.isSelect)
                 }.frame(width: 300, height: 44, alignment: .center)
+            if self.isSelect
+            {
+                Text("scale")
+            }
         }
         
         
@@ -113,18 +118,8 @@ struct PlayerView:UIViewRepresentable {
         func updateLayer(full:Bool) {
             let frame = UIScreen.main.bounds
             if full {
-                if view?.transform == CGAffineTransform.identity
-                {
                 view?.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2))
                 playerLayer?.frame = CGRect(x: 0, y: 0, width: max(frame.width, frame.height), height: min(frame.width, frame.height))
-                }
-                else
-                {
-                    view?.transform = CGAffineTransform.identity
-                    playerLayer?.frame = CGRect(x: 0, y: 0, width: frame.width, height: 350)
-
-                }
-                
             }
             else
             {
