@@ -41,31 +41,29 @@ import AVKit
 struct PlayerViewContainer:View {
     
     @State private var isSelect:Bool = false
+    @State private var playerView:PlayerView = PlayerView()
     var body: some View{
         VStack{
-            PlayerView().onDisappear {
-                PlayerView.Coordinator.share.stopPlay()
-            }.onAppear {
-                PlayerView.Coordinator.share.updateLayer(full: false)
-                
+            playerView.onDisappear {
+                self.playerView.coor.stopPlay()
             }
-            Button.init("full") {
+            Button.init(isSelect ? "scale" : "full") {
                 //全屏
                 self.isSelect.toggle()
-                PlayerView.Coordinator.share.updateLayer(full: self.isSelect)
-                }.frame(width: 300, height: 44, alignment: .center)
-            if self.isSelect
-            {
-                Text("scale")
-            }
+                self.playerView.coor.updateLayer(full: self.isSelect)
+            }.frame(width: 300, height: 44, alignment: .center).buttonStyle(DefaultButtonStyle())
         }
         
         
     }
 }
 
+
+
 struct PlayerView:UIViewRepresentable {
     typealias UIViewType = UIView
+    @State var coor:Coordinator = Coordinator()
+    
     func makeUIView(context: UIViewRepresentableContext<PlayerView>) -> UIView {
         let temp = UIView(frame: .zero)
         temp.backgroundColor = UIColor.black
@@ -78,17 +76,14 @@ struct PlayerView:UIViewRepresentable {
     }
     
     func makeCoordinator() -> PlayerView.Coordinator {
-        Coordinator.share
+        coor
     }
-    
-    
     
     class Coordinator: NSObject {
         var avplayer:AVPlayer?
         var playerLayer:AVPlayerLayer?
         var playerItem:AVPlayerItem?
         var view:UIView?
-        static let share = Coordinator()
         override init() {
             super.init()
         }
