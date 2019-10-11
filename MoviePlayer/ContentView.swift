@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+//import MBProgressHUDSwiftLGF
 
 struct ContentView: View {
     var body: some View {
@@ -112,10 +113,10 @@ struct PlayerView:UIViewRepresentable {
         }
         
         func updateLayer(full:Bool) {
-            let hud = MBProgressHudSwift(view: view!)
-            hud.backgroundColor = .red
-            hud.show(animated: true)
-            hud.hide(animated: true, afterDelay: 2)
+//            let hud = MBProgressHudSwift(view: view!)
+//            hud.backgroundColor = .red
+//            hud.show(animated: true)
+//            hud.hide(animated: true, afterDelay: 2)
             let frame = UIScreen.main.bounds
             if full {
                 view?.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2))

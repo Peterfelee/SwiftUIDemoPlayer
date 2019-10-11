@@ -20,7 +20,6 @@
 		E760EA8D233CA2350080F539 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E760EA8C233CA2350080F539 /* ShareViewController.m */; };
 		E760EA90233CA2350080F539 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E760EA8E233CA2350080F539 /* MainInterface.storyboard */; };
 		E760EA94233CA2350080F539 /* ShareMoviePlayer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E760EA89233CA2350080F539 /* ShareMoviePlayer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E7A1752E234EFE4600B600C6 /* MBProgressHudSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A1752D234EFE4600B600C6 /* MBProgressHudSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +66,7 @@
 		E760EA8C233CA2350080F539 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		E760EA8F233CA2350080F539 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E760EA91233CA2350080F539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E7A1752D234EFE4600B600C6 /* MBProgressHudSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBProgressHudSwift.swift; sourceTree = "<group>"; };
+		E7FD3F70235092B0001359BE /* MBProgressHUDSwiftLGF */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MBProgressHUDSwiftLGF; path = ../../../MBProgressHUDSwiftLGF; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +100,7 @@
 		B3AE9203891D30472211F6BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7FD3F70235092B0001359BE /* MBProgressHUDSwiftLGF */,
 				4E6C087FE038718C6533E17F /* Pods_MoviePlayer.framework */,
 			);
 			name = Frameworks;
@@ -135,7 +135,6 @@
 				E75AC34423322DD900C6C5BA /* MapLandMarkView.swift */,
 				E72BB20923332D41004805CA /* PlayerManager.swift */,
 				E72BB20B23332DB1004805CA /* Constant.swift */,
-				E7A1752D234EFE4600B600C6 /* MBProgressHudSwift.swift */,
 				E75AC3362332201500C6C5BA /* Assets.xcassets */,
 				E75AC33B2332201500C6C5BA /* LaunchScreen.storyboard */,
 				E75AC33E2332201500C6C5BA /* Info.plist */,
@@ -310,7 +309,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E72BB20A23332D41004805CA /* PlayerManager.swift in Sources */,
-				E7A1752E234EFE4600B600C6 /* MBProgressHudSwift.swift in Sources */,
 				E75AC3312332201500C6C5BA /* AppDelegate.swift in Sources */,
 				E75AC3332332201500C6C5BA /* SceneDelegate.swift in Sources */,
 				E75AC3352332201500C6C5BA /* ContentView.swift in Sources */,
