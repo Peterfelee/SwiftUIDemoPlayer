@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,35 @@
 		E75AC33A2332201500C6C5BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E75AC3392332201500C6C5BA /* Preview Assets.xcassets */; };
 		E75AC33D2332201500C6C5BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75AC33B2332201500C6C5BA /* LaunchScreen.storyboard */; };
 		E75AC34523322DD900C6C5BA /* MapLandMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75AC34423322DD900C6C5BA /* MapLandMarkView.swift */; };
+		E760EA8D233CA2350080F539 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E760EA8C233CA2350080F539 /* ShareViewController.m */; };
+		E760EA90233CA2350080F539 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E760EA8E233CA2350080F539 /* MainInterface.storyboard */; };
+		E760EA94233CA2350080F539 /* ShareMoviePlayer.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E760EA89233CA2350080F539 /* ShareMoviePlayer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E7A1752E234EFE4600B600C6 /* MBProgressHudSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A1752D234EFE4600B600C6 /* MBProgressHudSwift.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E760EA92233CA2350080F539 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E75AC3252332201500C6C5BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E760EA88233CA2350080F539;
+			remoteInfo = ShareMoviePlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E760EA95233CA2350080F539 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E760EA94233CA2350080F539 /* ShareMoviePlayer.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4E6C087FE038718C6533E17F /* Pods_MoviePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +62,12 @@
 		E75AC33C2332201500C6C5BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E75AC33E2332201500C6C5BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75AC34423322DD900C6C5BA /* MapLandMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLandMarkView.swift; sourceTree = "<group>"; };
+		E760EA89233CA2350080F539 /* ShareMoviePlayer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareMoviePlayer.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E760EA8B233CA2350080F539 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		E760EA8C233CA2350080F539 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		E760EA8F233CA2350080F539 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E760EA91233CA2350080F539 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7A1752D234EFE4600B600C6 /* MBProgressHudSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBProgressHudSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +76,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D373898CFDF062C843ADF7 /* Pods_MoviePlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E760EA86233CA2350080F539 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +95,6 @@
 				A02B192178048C67083F7D4E /* Pods-MoviePlayer.debug.xcconfig */,
 				A791801B2C232172806E22CB /* Pods-MoviePlayer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -70,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E75AC32F2332201500C6C5BA /* MoviePlayer */,
+				E760EA8A233CA2350080F539 /* ShareMoviePlayer */,
 				E75AC32E2332201500C6C5BA /* Products */,
 				8AEF6B1CB93F53410615A081 /* Pods */,
 				B3AE9203891D30472211F6BA /* Frameworks */,
@@ -80,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E75AC32D2332201500C6C5BA /* MoviePlayer.app */,
+				E760EA89233CA2350080F539 /* ShareMoviePlayer.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +135,7 @@
 				E75AC34423322DD900C6C5BA /* MapLandMarkView.swift */,
 				E72BB20923332D41004805CA /* PlayerManager.swift */,
 				E72BB20B23332DB1004805CA /* Constant.swift */,
+				E7A1752D234EFE4600B600C6 /* MBProgressHudSwift.swift */,
 				E75AC3362332201500C6C5BA /* Assets.xcassets */,
 				E75AC33B2332201500C6C5BA /* LaunchScreen.storyboard */,
 				E75AC33E2332201500C6C5BA /* Info.plist */,
@@ -109,6 +152,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E760EA8A233CA2350080F539 /* ShareMoviePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				E760EA8B233CA2350080F539 /* ShareViewController.h */,
+				E760EA8C233CA2350080F539 /* ShareViewController.m */,
+				E760EA8E233CA2350080F539 /* MainInterface.storyboard */,
+				E760EA91233CA2350080F539 /* Info.plist */,
+			);
+			path = ShareMoviePlayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,15 +175,34 @@
 				E75AC32A2332201500C6C5BA /* Frameworks */,
 				E75AC32B2332201500C6C5BA /* Resources */,
 				D1A1194644C8CBDC71B1E49B /* [CP] Embed Pods Frameworks */,
+				E760EA95233CA2350080F539 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E760EA93233CA2350080F539 /* PBXTargetDependency */,
 			);
 			name = MoviePlayer;
 			productName = MoviePlayer;
 			productReference = E75AC32D2332201500C6C5BA /* MoviePlayer.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E760EA88233CA2350080F539 /* ShareMoviePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E760EA98233CA2350080F539 /* Build configuration list for PBXNativeTarget "ShareMoviePlayer" */;
+			buildPhases = (
+				E760EA85233CA2350080F539 /* Sources */,
+				E760EA86233CA2350080F539 /* Frameworks */,
+				E760EA87233CA2350080F539 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareMoviePlayer;
+			productName = ShareMoviePlayer;
+			productReference = E760EA89233CA2350080F539 /* ShareMoviePlayer.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -142,6 +215,9 @@
 				ORGANIZATIONNAME = Personal;
 				TargetAttributes = {
 					E75AC32C2332201500C6C5BA = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					E760EA88233CA2350080F539 = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
@@ -160,6 +236,7 @@
 			projectRoot = "";
 			targets = (
 				E75AC32C2332201500C6C5BA /* MoviePlayer */,
+				E760EA88233CA2350080F539 /* ShareMoviePlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -172,6 +249,14 @@
 				E75AC33D2332201500C6C5BA /* LaunchScreen.storyboard in Resources */,
 				E75AC33A2332201500C6C5BA /* Preview Assets.xcassets in Resources */,
 				E75AC3372332201500C6C5BA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E760EA87233CA2350080F539 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E760EA90233CA2350080F539 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E72BB20A23332D41004805CA /* PlayerManager.swift in Sources */,
+				E7A1752E234EFE4600B600C6 /* MBProgressHudSwift.swift in Sources */,
 				E75AC3312332201500C6C5BA /* AppDelegate.swift in Sources */,
 				E75AC3332332201500C6C5BA /* SceneDelegate.swift in Sources */,
 				E75AC3352332201500C6C5BA /* ContentView.swift in Sources */,
@@ -233,7 +319,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E760EA85233CA2350080F539 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E760EA8D233CA2350080F539 /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E760EA93233CA2350080F539 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E760EA88233CA2350080F539 /* ShareMoviePlayer */;
+			targetProxy = E760EA92233CA2350080F539 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E75AC33B2332201500C6C5BA /* LaunchScreen.storyboard */ = {
@@ -242,6 +344,14 @@
 				E75AC33C2332201500C6C5BA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E760EA8E233CA2350080F539 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E760EA8F233CA2350080F539 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -403,6 +513,42 @@
 			};
 			name = Release;
 		};
+		E760EA96233CA2350080F539 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 89LAKJ7LBL;
+				INFOPLIST_FILE = ShareMoviePlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.lgf.MoviePlayer.ShareMoviePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E760EA97233CA2350080F539 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 89LAKJ7LBL;
+				INFOPLIST_FILE = ShareMoviePlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.lgf.MoviePlayer.ShareMoviePlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -420,6 +566,15 @@
 			buildConfigurations = (
 				E75AC3422332201500C6C5BA /* Debug */,
 				E75AC3432332201500C6C5BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E760EA98233CA2350080F539 /* Build configuration list for PBXNativeTarget "ShareMoviePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E760EA96233CA2350080F539 /* Debug */,
+				E760EA97233CA2350080F539 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
