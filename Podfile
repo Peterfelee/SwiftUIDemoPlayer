@@ -7,5 +7,5 @@ target 'MoviePlayer' do
 
   # Pods for MoviePlayer
 pod 'SnapKit', '~> 5.0.1'
-#pod 'MBProgressHUDSwiftLGF','~> 1.0.2'
+pod 'MBProgressHUDSwiftLGF'
 end
