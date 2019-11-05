@@ -1,9 +1,9 @@
 PODS:
-  - MBProgressHUDSwiftLGF (1.0.2)
+  - MBProgressHUDSwiftLGF (1.0.5)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - MBProgressHUDSwiftLGF
+  - MBProgressHUDSwiftLGF (~> 1.0.5)
   - SnapKit (~> 5.0.1)
 
 SPEC REPOS:
@@ -13,9 +13,9 @@ SPEC REPOS:
     - MBProgressHUDSwiftLGF
 
 SPEC CHECKSUMS:
-  MBProgressHUDSwiftLGF: 68301747655c9777a7a894ea9b0acb43373be5c4
+  MBProgressHUDSwiftLGF: b8e2de7ebb90ab7e8426888b86c56ef9110f387c
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: dc557d39aed9ff706e7c8ee1af8dcb5820df1e38
+PODFILE CHECKSUM: 3054b66e4e5234d7f991a5428aa1557d1fc44552
 
 COCOAPODS: 1.8.3

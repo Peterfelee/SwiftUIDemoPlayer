@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-//import MBProgressHUDSwiftLGF
+import MBProgressHUDSwiftLGF
 
 struct ContentView: View {
     var body: some View {
@@ -27,11 +27,30 @@ struct ListView:View {
 //    var image:ImageView
     var body: some View{
         NavigationView{
-            List(0..<6){ item in
+            VStack{
                 NavigationLink.init(destination: PlayerViewContainer().edgesIgnoringSafeArea(.top)) {
                     ImageView()
+                    
                 }
-            }.navigationBarTitle(Text("First Blood"))
+                
+                List(0..<6){ item in
+                    HStack{
+                        
+                        NavigationLink.init(destination: PlayerViewContainer().edgesIgnoringSafeArea(.top)) {
+                            ImageView()
+                            
+                        }
+                        
+                        
+                        Button.init("test") {
+                            print("look you")
+                        }
+                    }
+                }.navigationBarTitle(Text("First Blood"))
+                
+            }
+            
+            
         }
     }
 }
@@ -113,11 +132,15 @@ struct PlayerView:UIViewRepresentable {
         }
         
         func updateLayer(full:Bool) {
-//            let hud = MBProgressHudSwift(view: view!)
+            let frame = UIScreen.main.bounds
+//            let hud = MBProgressHudSwift(frame: frame)
 //            hud.backgroundColor = .red
 //            hud.show(animated: true)
+            
 //            hud.hide(animated: true, afterDelay: 2)
-            let frame = UIScreen.main.bounds
+           let hud = MBProgressHudSwift.showHud(addedToView: view!, withAnimated: true)
+            hud.hide(animated: true, afterDelay: 2)
+            
             if full {
                 view?.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi/2))
                 playerLayer?.frame = CGRect(x: 0, y: 0, width: max(frame.width, frame.height), height: min(frame.width, frame.height))

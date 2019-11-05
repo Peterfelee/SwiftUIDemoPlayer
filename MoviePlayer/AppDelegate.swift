@@ -9,7 +9,6 @@
 import UIKit
 import MBProgressHUDSwiftLGF
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
